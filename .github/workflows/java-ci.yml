@@ -1,6 +1,18 @@
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "java/**"
+      - ".github/workflows/java-ci.yml"
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "java/**"
+      - ".github/workflows/java-ci.yml"
+
 jobs:
   build-run-bundle:
-    runs-on: [self-hosted, mac, lab-java]
+    runs-on: [self-hosted, mac, lab-java]   # your labels
     defaults:
       run:
         working-directory: java

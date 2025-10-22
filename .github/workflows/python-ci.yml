@@ -1,23 +1,24 @@
 name: python-ci
-
 on:
   push:
     branches: [ main ]
+    paths:
+      - "app.py"
+      - ".github/workflows/python-ci.yml"
   pull_request:
     branches: [ main ]
+    paths:
+      - "app.py"
+      - ".github/workflows/python-ci.yml"
 
 jobs:
   run-python:
+    # keep GitHub-hosted (or your runner if you want)
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Run hello app
         run: python app.py
