@@ -12,7 +12,7 @@ on:
 
 jobs:
   build-run-bundle:
-    runs-on: [self-hosted, mac, lab-java]   # your labels
+    runs-on: [self-hosted, macOS, X64]   # your labels
     defaults:
       run:
         working-directory: java
